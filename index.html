@@ -7,22 +7,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #07080f;
-    --bg2: #0d0f1a;
-    --panel: #111320;
-    --border: #1e2240;
-    --neon: #00ffc8;
-    --neon2: #7b5ea7;
-    --accent: #ff6b6b;
-    --text: #c8cfe8;
-    --muted: #5a607a;
-    --white: #eef0fa;
-    --pixel: 'Press Start 2P', monospace;
-    --body: 'DM Sans', sans-serif;
+    --bg:      #080608;
+    --bg2:     #0f0a0d;
+    --panel:   #140a0e;
+    --border:  #2a1020;
+    --neon:    #ff2244;
+    --neon2:   #c4184e;
+    --accent:  #ff6688;
+    --glow:    rgba(255,34,68,0.15);
+    --text:    #d4c0c8;
+    --muted:   #6a4a55;
+    --white:   #f5e8ec;
+    --pixel:   'Press Start 2P', monospace;
+    --body:    'DM Sans', sans-serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -43,8 +43,8 @@
       0deg,
       transparent,
       transparent 2px,
-      rgba(0,255,200,0.015) 2px,
-      rgba(0,255,200,0.015) 4px
+      rgba(255,34,68,0.012) 2px,
+      rgba(255,34,68,0.012) 4px
     );
     pointer-events: none;
     z-index: 9999;
@@ -59,8 +59,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 18px 48px;
-    background: rgba(7,8,15,0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(8,6,8,0.88);
+    backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
   }
 
@@ -69,7 +69,7 @@
     font-size: 10px;
     color: var(--neon);
     letter-spacing: 2px;
-    text-shadow: 0 0 12px var(--neon);
+    text-shadow: 0 0 14px var(--neon);
   }
 
   .nav-links {
@@ -107,21 +107,33 @@
       linear-gradient(var(--border) 1px, transparent 1px),
       linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 48px 48px;
-    opacity: 0.4;
+    opacity: 0.5;
   }
 
+  /* Red gradient glow */
   .hero-glow {
     position: absolute;
-    width: 600px; height: 600px;
+    width: 700px; height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,255,200,0.08) 0%, transparent 70%);
-    top: -100px; left: -100px;
-    animation: pulse 6s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(255,34,68,0.1) 0%, rgba(180,10,40,0.04) 50%, transparent 70%);
+    top: -160px; left: -160px;
+    animation: pulse 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .hero-glow-right {
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,24,78,0.07) 0%, transparent 70%);
+    bottom: -100px; right: -100px;
+    animation: pulse 9s ease-in-out infinite reverse;
+    pointer-events: none;
   }
 
   @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
+    50%       { transform: scale(1.12); opacity: 0.7; }
   }
 
   .hero-content {
@@ -141,7 +153,7 @@
     color: var(--neon);
     letter-spacing: 3px;
     margin-bottom: 24px;
-    text-shadow: 0 0 8px var(--neon);
+    text-shadow: 0 0 10px var(--neon);
   }
 
   .hero-name {
@@ -152,7 +164,10 @@
     margin-bottom: 16px;
   }
 
-  .hero-name span { color: var(--neon); }
+  .hero-name span {
+    color: var(--neon);
+    text-shadow: 0 0 18px rgba(255,34,68,0.6);
+  }
 
   .hero-role {
     font-size: 18px;
@@ -169,6 +184,7 @@
     margin-bottom: 40px;
     border-left: 3px solid var(--neon);
     padding-left: 20px;
+    background: linear-gradient(90deg, rgba(255,34,68,0.05) 0%, transparent 80%);
   }
 
   .hero-btns {
@@ -190,11 +206,11 @@
   }
 
   .btn-primary {
-    background: var(--neon);
-    color: #07080f;
+    background: linear-gradient(135deg, var(--neon) 0%, var(--neon2) 100%);
+    color: #08060a;
   }
   .btn-primary:hover {
-    box-shadow: 0 0 24px var(--neon);
+    box-shadow: 0 0 28px rgba(255,34,68,0.55);
     transform: translateY(-2px);
   }
 
@@ -204,11 +220,11 @@
     border: 2px solid var(--neon);
   }
   .btn-outline:hover {
-    background: rgba(0,255,200,0.08);
-    box-shadow: 0 0 16px var(--neon);
+    background: rgba(255,34,68,0.08);
+    box-shadow: 0 0 18px rgba(255,34,68,0.3);
   }
 
-  /* pixel avatar frame */
+  /* ─── AVATAR ──────────────────────────── */
   .hero-avatar-wrap {
     display: flex;
     justify-content: center;
@@ -231,7 +247,7 @@
     inset: 0;
     animation: spin 8s linear infinite;
     clip-path: polygon(0 10%, 10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%);
-    box-shadow: 0 0 20px var(--neon), inset 0 0 20px rgba(0,255,200,0.05);
+    box-shadow: 0 0 24px rgba(255,34,68,0.4), inset 0 0 24px rgba(255,34,68,0.06);
   }
   .avatar-frame::after {
     inset: 8px;
@@ -242,7 +258,7 @@
 
   @keyframes spin {
     from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    to   { transform: rotate(360deg); }
   }
 
   .avatar-img {
@@ -259,7 +275,7 @@
   .avatar-img img {
     width: 100%; height: 100%;
     object-fit: cover;
-    filter: grayscale(20%) contrast(1.05);
+    filter: grayscale(15%) contrast(1.05);
   }
 
   .avatar-placeholder {
@@ -268,17 +284,14 @@
     color: var(--muted);
     text-align: center;
     padding: 16px;
+    line-height: 2;
   }
 
-  /* Stats row */
+  /* Stats */
   .hero-stats {
     display: flex;
     gap: 32px;
     margin-top: 40px;
-  }
-
-  .stat {
-    text-align: center;
   }
 
   .stat-num {
@@ -286,7 +299,7 @@
     font-size: 16px;
     color: var(--neon);
     display: block;
-    text-shadow: 0 0 10px var(--neon);
+    text-shadow: 0 0 12px rgba(255,34,68,0.7);
   }
 
   .stat-label {
@@ -325,9 +338,9 @@
   .section-divider {
     width: 48px;
     height: 3px;
-    background: var(--neon);
+    background: linear-gradient(90deg, var(--neon), var(--neon2));
     margin-bottom: 48px;
-    box-shadow: 0 0 8px var(--neon);
+    box-shadow: 0 0 10px rgba(255,34,68,0.5);
   }
 
   /* ─── EXPERIENCE ──────────────────────── */
@@ -350,13 +363,13 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(0,255,200,0.03) 0%, transparent 60%);
+    background: linear-gradient(135deg, rgba(255,34,68,0.04) 0%, transparent 60%);
     pointer-events: none;
   }
 
   .exp-card:hover {
     border-color: var(--neon);
-    box-shadow: 0 0 24px rgba(0,255,200,0.08);
+    box-shadow: 0 0 28px rgba(255,34,68,0.1);
     transform: translateX(4px);
   }
 
@@ -365,7 +378,7 @@
     font-size: 9px;
     color: var(--neon);
     line-height: 1.8;
-    text-shadow: 0 0 8px var(--neon);
+    text-shadow: 0 0 8px rgba(255,34,68,0.6);
   }
 
   .exp-title {
@@ -378,7 +391,7 @@
 
   .exp-sub {
     font-size: 12px;
-    color: var(--neon2);
+    color: var(--accent);
     margin-bottom: 16px;
     font-weight: 500;
   }
@@ -429,18 +442,18 @@
     bottom: 0; left: 0;
     height: 2px;
     width: 0;
-    background: var(--neon);
+    background: linear-gradient(90deg, var(--neon), var(--neon2));
     transition: width 0.3s;
   }
 
   .skill-chip:hover {
     border-color: var(--neon);
     color: var(--neon);
+    background: linear-gradient(135deg, rgba(255,34,68,0.05) 0%, transparent 80%);
   }
 
   .skill-chip:hover::after { width: 100%; }
 
-  /* Tool chips */
   .tools-row {
     display: flex;
     flex-wrap: wrap;
@@ -455,56 +468,21 @@
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1px;
+    transition: all 0.2s;
+  }
+
+  .tool-tag:hover {
+    border-color: var(--neon);
+    color: var(--neon);
   }
 
   /* ─── PROJECTS ────────────────────────── */
-  .projects-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 40px;
-  }
-
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
   }
 
-  /* Add Project Card */
-  .add-project-card {
-    border: 2px dashed var(--border);
-    padding: 40px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-    min-height: 280px;
-  }
-
-  .add-project-card:hover {
-    border-color: var(--neon);
-    background: rgba(0,255,200,0.03);
-  }
-
-  .add-project-card span {
-    font-family: var(--pixel);
-    font-size: 7px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    text-align: center;
-  }
-
-  .add-icon {
-    font-size: 36px;
-    color: var(--muted);
-    line-height: 1;
-  }
-
-  /* Project card */
   .project-card {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -514,9 +492,27 @@
   }
 
   .project-card:hover {
-    border-color: rgba(0,255,200,0.4);
-    box-shadow: 0 8px 32px rgba(0,255,200,0.06);
+    border-color: rgba(255,34,68,0.45);
+    box-shadow: 0 8px 36px rgba(255,34,68,0.1);
     transform: translateY(-4px);
+  }
+
+  /* Gradient overlay on image */
+  .project-media-wrap {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    background: var(--bg2);
+  }
+
+  .project-media-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, var(--panel));
+    pointer-events: none;
   }
 
   .project-media {
@@ -524,19 +520,18 @@
     height: 180px;
     object-fit: cover;
     display: block;
-    background: var(--bg2);
+    filter: grayscale(10%) contrast(1.05);
+    transition: transform 0.4s;
   }
 
-  .project-media-video {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  .project-card:hover .project-media {
+    transform: scale(1.04);
   }
 
   .project-media-placeholder {
     width: 100%;
     height: 180px;
-    background: var(--bg2);
+    background: linear-gradient(135deg, var(--bg2) 0%, rgba(255,34,68,0.05) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -568,131 +563,6 @@
     line-height: 1.6;
   }
 
-  .project-actions {
-    position: absolute;
-    top: 10px; right: 10px;
-    display: flex;
-    gap: 6px;
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .project-card:hover .project-actions { opacity: 1; }
-
-  .project-btn {
-    width: 30px; height: 30px;
-    background: rgba(7,8,15,0.85);
-    border: 1px solid var(--border);
-    color: var(--text);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    transition: all 0.2s;
-  }
-
-  .project-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .project-btn.edit:hover { border-color: var(--neon); color: var(--neon); }
-
-  /* ─── MODAL ───────────────────────────── */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(7,8,15,0.92);
-    z-index: 200;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-  }
-
-  .modal-overlay.active { display: flex; }
-
-  .modal {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--neon);
-    padding: 40px;
-    width: 100%;
-    max-width: 560px;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-
-  .modal-title {
-    font-family: var(--pixel);
-    font-size: 10px;
-    color: var(--white);
-    margin-bottom: 32px;
-    letter-spacing: 1px;
-  }
-
-  .form-group { margin-bottom: 20px; }
-
-  label {
-    display: block;
-    font-family: var(--pixel);
-    font-size: 7px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-
-  input, textarea, select {
-    width: 100%;
-    padding: 12px 16px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    color: var(--white);
-    font-family: var(--body);
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  input:focus, textarea:focus, select:focus {
-    border-color: var(--neon);
-  }
-
-  textarea { min-height: 80px; resize: vertical; }
-
-  select option { background: var(--panel); }
-
-  .file-drop {
-    border: 2px dashed var(--border);
-    padding: 28px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .file-drop:hover, .file-drop.over {
-    border-color: var(--neon);
-    background: rgba(0,255,200,0.03);
-  }
-
-  .file-drop-text {
-    font-family: var(--pixel);
-    font-size: 7px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    display: block;
-    margin-top: 8px;
-  }
-
-  .file-preview {
-    margin-top: 12px;
-    font-size: 12px;
-    color: var(--neon);
-  }
-
-  .modal-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 32px;
-  }
-
   /* ─── CONTACT ─────────────────────────── */
   .contact-grid {
     display: grid;
@@ -708,11 +578,21 @@
     background: var(--panel);
     border: 1px solid var(--border);
     transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,34,68,0.04) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .contact-item:hover {
     border-color: var(--neon);
-    box-shadow: 0 0 16px rgba(0,255,200,0.06);
+    box-shadow: 0 0 20px rgba(255,34,68,0.08);
   }
 
   .contact-icon {
@@ -745,6 +625,16 @@
     grid-template-columns: 1fr auto;
     gap: 16px;
     align-items: start;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(196,24,78,0.04) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .edu-degree {
@@ -755,13 +645,8 @@
     margin-bottom: 8px;
   }
 
-  .edu-school {
-    color: var(--neon2);
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  .edu-loc { color: var(--muted); font-size: 13px; }
+  .edu-school { color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+  .edu-loc    { color: var(--muted); font-size: 13px; }
 
   .edu-year {
     font-family: var(--pixel);
@@ -777,10 +662,10 @@
     padding: 40px 48px;
     text-align: center;
     color: var(--muted);
-    font-size: 12px;
     font-family: var(--pixel);
     font-size: 7px;
     letter-spacing: 2px;
+    background: linear-gradient(0deg, rgba(255,34,68,0.03) 0%, transparent 100%);
   }
 
   footer span { color: var(--neon); }
@@ -797,7 +682,7 @@
     transform: translateY(0);
   }
 
-  /* responsive */
+  /* ─── RESPONSIVE ──────────────────────── */
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { gap: 16px; }
@@ -807,7 +692,6 @@
     .skills-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     .exp-card { grid-template-columns: 1fr; gap: 16px; }
-    .modal { padding: 24px; }
     footer { padding: 32px 24px; }
   }
 </style>
@@ -830,6 +714,7 @@
 <div class="hero" id="about">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
+  <div class="hero-glow-right"></div>
   <div class="hero-content">
     <div>
       <p class="hero-label">[ PLAYER ONE ]</p>
@@ -857,13 +742,25 @@
         </div>
       </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PROFILE PHOTO
+         ───────────────────────────────────────────────────────
+         To add your photo:
+           1. Place your image file (e.g. "photo.jpg") in the
+              same folder as this HTML file.
+           2. Replace the <div class="avatar-placeholder"> block
+              below with:
+                <img src="photo.jpg" alt="Andrei Rafael">
+         ═══════════════════════════════════════════════════════ -->
     <div class="hero-avatar-wrap">
       <div class="avatar-frame">
         <div class="avatar-img">
-          <div class="avatar-placeholder">[ ADD YOUR<br>PHOTO HERE ]<br><br>Click to upload</div>
+          <div class="avatar-placeholder">[ ADD YOUR<br>PHOTO HERE ]<br><br>See comment<br>in code</div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -905,24 +802,89 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROJECTS SECTION
+     ═══════════════════════════════════════════════════════════
+
+     HOW TO ADD A PROJECT:
+     Copy one of the project-card blocks below and paste it
+     inside <div class="projects-grid"> before the closing </div>.
+
+     Each card has three things to fill in:
+       1. TYPE     → the small label (e.g. GAME, PIXEL ART, ANIMATION)
+       2. TITLE    → the project name in the pixel font
+       3. DESC     → a short description paragraph
+       4. IMAGE    → see the instructions inside each card
+
+     ═══════════════════════════════════════════════════════════ -->
 <section id="projects" style="max-width:1100px;margin:0 auto;padding:100px 48px;">
-  <div class="projects-header">
-    <div>
-      <p class="section-tag">// PROJECTS</p>
-      <h2 class="section-title">MY BUILDS</h2>
-      <div class="section-divider" style="margin-bottom:0"></div>
-    </div>
-    <button class="btn btn-outline" onclick="openModal()" style="height:fit-content;">+ ADD PROJECT</button>
+  <div style="margin-bottom:40px;">
+    <p class="section-tag">// PROJECTS</p>
+    <h2 class="section-title">MY BUILDS</h2>
+    <div class="section-divider" style="margin-bottom:0"></div>
   </div>
 
-  <div class="projects-grid" id="projectsGrid">
-    <div class="add-project-card" onclick="openModal()">
-      <div class="add-icon">＋</div>
-      <span>ADD YOUR FIRST<br>PROJECT HERE</span>
+  <div class="projects-grid">
+
+    <!-- ───────────────────────────────────────────────────────
+         PROJECT CARD 1  ← Edit or delete this example
+         ─────────────────────────────────────────────────────── -->
+    <div class="project-card">
+
+      <!-- IMAGE for this card
+           Option A — local file:
+             Replace "YOUR-IMAGE.png" with your filename,
+             then put the image in the same folder as this HTML.
+               <img src="YOUR-IMAGE.png" alt="Project name" class="project-media">
+
+           Option B — no image yet:
+             Leave the placeholder div below as-is.        -->
+      <div class="project-media-wrap">
+        <div class="project-media-placeholder">🎮</div>
+        <!-- SWAP THE LINE ABOVE FOR THIS WHEN READY:
+        <img src="YOUR-IMAGE.png" alt="Project Title" class="project-media">
+        -->
+      </div>
+
+      <div class="project-body">
+        <div class="project-type">GAME</div>  <!-- ← Change type here -->
+        <h3 class="project-title">YOUR PROJECT TITLE</h3>  <!-- ← Change title here -->
+        <p class="project-desc">Write a short description of this project here. What is it about? What did you build or design?</p>  <!-- ← Change description here -->
+      </div>
     </div>
+
+
+    <!-- ───────────────────────────────────────────────────────
+         PROJECT CARD 2  ← Copy this block to add more projects
+         ─────────────────────────────────────────────────────── -->
+    <div class="project-card">
+
+      <div class="project-media-wrap">
+        <div class="project-media-placeholder">🖼️</div>
+        <!-- SWAP THE LINE ABOVE FOR THIS WHEN READY:
+        <img src="YOUR-IMAGE.png" alt="Project Title" class="project-media">
+        -->
+      </div>
+
+      <div class="project-body">
+        <div class="project-type">PIXEL ART</div>  <!-- ← Change type here -->
+        <h3 class="project-title">YOUR PROJECT TITLE</h3>  <!-- ← Change title here -->
+        <p class="project-desc">Write a short description of this project here. What is it about? What did you build or design?</p>  <!-- ← Change description here -->
+      </div>
+    </div>
+
+
+    <!-- ───────────────────────────────────────────────────────
+         ADD MORE CARDS HERE
+         Just copy one of the project-card blocks above
+         and paste it right here, then fill in the details.
+         ─────────────────────────────────────────────────────── -->
+
+
   </div>
 </section>
+
 
 <!-- SKILLS -->
 <section id="skills">
@@ -1014,300 +976,15 @@
   <span>ANDREI RAFAEL</span> — GAME DEVELOPER & PIXEL ARTIST — DAVAO DEL SUR, PH
 </footer>
 
-<!-- ADD PROJECT MODAL -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <h3 class="modal-title" id="modalTitle">ADD PROJECT</h3>
-
-    <div class="form-group">
-      <label>PROJECT TITLE</label>
-      <input type="text" id="projTitle" placeholder="e.g. Pixel Dungeon Runner">
-    </div>
-
-    <div class="form-group">
-      <label>TYPE</label>
-      <select id="projType">
-        <option>Game</option>
-        <option>Pixel Art</option>
-        <option>Animation</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>DESCRIPTION</label>
-      <textarea id="projDesc" placeholder="Describe your project..."></textarea>
-    </div>
-
-    <div class="form-group">
-      <label>MEDIA TYPE</label>
-      <select id="mediaType" onchange="handleMediaTypeChange()">
-        <option value="image">Image</option>
-        <option value="video-file">Video File</option>
-        <option value="video-url">Video URL (YouTube/MP4)</option>
-      </select>
-    </div>
-
-    <!-- Image upload -->
-    <div class="form-group" id="imageUploadGroup">
-      <label>UPLOAD IMAGE</label>
-      <div class="file-drop" id="imageDrop" onclick="document.getElementById('imageInput').click()"
-           ondragover="handleDragOver(event,'imageDrop')"
-           ondragleave="handleDragLeave('imageDrop')"
-           ondrop="handleImageDrop(event)">
-        <div style="font-size:32px;">🖼️</div>
-        <span class="file-drop-text">CLICK OR DRAG IMAGE HERE<br>PNG, JPG, GIF, WEBP</span>
-        <div class="file-preview" id="imagePreview"></div>
-      </div>
-      <input type="file" id="imageInput" accept="image/*" style="display:none" onchange="handleImageSelect(event)">
-    </div>
-
-    <!-- Video file upload -->
-    <div class="form-group" id="videoFileGroup" style="display:none;">
-      <label>UPLOAD VIDEO</label>
-      <div class="file-drop" id="videoDrop" onclick="document.getElementById('videoInput').click()"
-           ondragover="handleDragOver(event,'videoDrop')"
-           ondragleave="handleDragLeave('videoDrop')"
-           ondrop="handleVideoDrop(event)">
-        <div style="font-size:32px;">🎮</div>
-        <span class="file-drop-text">CLICK OR DRAG VIDEO HERE<br>MP4, WEBM, MOV</span>
-        <div class="file-preview" id="videoFilePreview"></div>
-      </div>
-      <input type="file" id="videoInput" accept="video/*" style="display:none" onchange="handleVideoSelect(event)">
-    </div>
-
-    <!-- Video URL -->
-    <div class="form-group" id="videoUrlGroup" style="display:none;">
-      <label>VIDEO URL</label>
-      <input type="url" id="videoUrl" placeholder="https://youtube.com/watch?v=... or .mp4 URL">
-    </div>
-
-    <div class="modal-actions">
-      <button class="btn btn-primary" onclick="saveProject()">SAVE PROJECT</button>
-      <button class="btn btn-outline" onclick="closeModal()">CANCEL</button>
-    </div>
-  </div>
-</div>
-
 <script>
-// ─── STATE ───────────────────────────────────────────────
-let projects = JSON.parse(localStorage.getItem('ar_projects') || '[]');
-let editIndex = -1;
-let currentImageData = null;
-let currentVideoData = null;
-
-// ─── RENDER PROJECTS ─────────────────────────────────────
-function renderProjects() {
-  const grid = document.getElementById('projectsGrid');
-  grid.innerHTML = '';
-
-  projects.forEach((p, i) => {
-    const card = document.createElement('div');
-    card.className = 'project-card';
-
-    let mediaHTML = '';
-    if (p.mediaType === 'image' && p.imageData) {
-      mediaHTML = `<img src="${p.imageData}" alt="${p.title}" class="project-media">`;
-    } else if (p.mediaType === 'video-file' && p.videoData) {
-      mediaHTML = `<video class="project-media-video" controls muted><source src="${p.videoData}" type="video/mp4">Your browser does not support video.</video>`;
-    } else if (p.mediaType === 'video-url' && p.videoUrl) {
-      const embedUrl = getEmbedUrl(p.videoUrl);
-      if (embedUrl) {
-        mediaHTML = `<iframe src="${embedUrl}" class="project-media-video" frameborder="0" allowfullscreen style="width:100%;height:180px;border:0;display:block;"></iframe>`;
-      } else {
-        mediaHTML = `<video class="project-media-video" controls muted><source src="${p.videoUrl}">Your browser does not support video.</video>`;
-      }
-    } else {
-      mediaHTML = `<div class="project-media-placeholder">🎮</div>`;
-    }
-
-    card.innerHTML = `
-      ${mediaHTML}
-      <div class="project-body">
-        <div class="project-type">${p.type.toUpperCase()}</div>
-        <h3 class="project-title">${p.title}</h3>
-        <p class="project-desc">${p.desc}</p>
-      </div>
-      <div class="project-actions">
-        <button class="project-btn edit" onclick="editProject(${i})" title="Edit">✏️</button>
-        <button class="project-btn" onclick="deleteProject(${i})" title="Delete">🗑️</button>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-
-  // Add card
-  const addCard = document.createElement('div');
-  addCard.className = 'add-project-card';
-  addCard.onclick = openModal;
-  addCard.innerHTML = `<div class="add-icon">＋</div><span>ADD PROJECT</span>`;
-  grid.appendChild(addCard);
-}
-
-// ─── YOUTUBE EMBED ────────────────────────────────────────
-function getEmbedUrl(url) {
-  try {
-    const u = new URL(url);
-    if (u.hostname.includes('youtube.com') || u.hostname.includes('youtu.be')) {
-      let vid = u.searchParams.get('v') || u.pathname.replace('/', '');
-      return `https://www.youtube.com/embed/${vid}`;
-    }
-  } catch(e) {}
-  return null;
-}
-
-// ─── MODAL ────────────────────────────────────────────────
-function openModal(idx = -1) {
-  editIndex = idx;
-  currentImageData = null;
-  currentVideoData = null;
-  document.getElementById('imagePreview').textContent = '';
-  document.getElementById('videoFilePreview').textContent = '';
-  document.getElementById('imageInput').value = '';
-  document.getElementById('videoInput').value = '';
-
-  if (idx >= 0) {
-    const p = projects[idx];
-    document.getElementById('modalTitle').textContent = 'EDIT PROJECT';
-    document.getElementById('projTitle').value = p.title;
-    document.getElementById('projType').value = p.type;
-    document.getElementById('projDesc').value = p.desc;
-    document.getElementById('mediaType').value = p.mediaType || 'image';
-    document.getElementById('videoUrl').value = p.videoUrl || '';
-    currentImageData = p.imageData || null;
-    currentVideoData = p.videoData || null;
-    if (currentImageData) document.getElementById('imagePreview').textContent = '✓ Image loaded';
-    if (currentVideoData) document.getElementById('videoFilePreview').textContent = '✓ Video loaded';
-  } else {
-    document.getElementById('modalTitle').textContent = 'ADD PROJECT';
-    document.getElementById('projTitle').value = '';
-    document.getElementById('projType').value = 'Game';
-    document.getElementById('projDesc').value = '';
-    document.getElementById('mediaType').value = 'image';
-    document.getElementById('videoUrl').value = '';
-  }
-
-  handleMediaTypeChange();
-  document.getElementById('modalOverlay').classList.add('active');
-}
-
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('active');
-}
-
-function handleMediaTypeChange() {
-  const val = document.getElementById('mediaType').value;
-  document.getElementById('imageUploadGroup').style.display = val === 'image' ? '' : 'none';
-  document.getElementById('videoFileGroup').style.display = val === 'video-file' ? '' : 'none';
-  document.getElementById('videoUrlGroup').style.display = val === 'video-url' ? '' : 'none';
-}
-
-function saveProject() {
-  const title = document.getElementById('projTitle').value.trim();
-  const type = document.getElementById('projType').value;
-  const desc = document.getElementById('projDesc').value.trim();
-  const mediaType = document.getElementById('mediaType').value;
-  const videoUrl = document.getElementById('videoUrl').value.trim();
-
-  if (!title) { alert('Please enter a project title.'); return; }
-
-  const proj = { title, type, desc, mediaType, videoUrl, imageData: currentImageData, videoData: currentVideoData };
-
-  if (editIndex >= 0) {
-    projects[editIndex] = proj;
-  } else {
-    projects.push(proj);
-  }
-
-  localStorage.setItem('ar_projects', JSON.stringify(projects));
-  renderProjects();
-  closeModal();
-}
-
-function editProject(i) { openModal(i); }
-
-function deleteProject(i) {
-  if (confirm('Delete this project?')) {
-    projects.splice(i, 1);
-    localStorage.setItem('ar_projects', JSON.stringify(projects));
-    renderProjects();
-  }
-}
-
-// ─── FILE HANDLING ────────────────────────────────────────
-function handleImageSelect(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  readFileAsDataURL(file, data => {
-    currentImageData = data;
-    document.getElementById('imagePreview').textContent = '✓ ' + file.name;
-  });
-}
-
-function handleVideoSelect(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  readFileAsDataURL(file, data => {
-    currentVideoData = data;
-    document.getElementById('videoFilePreview').textContent = '✓ ' + file.name;
-  });
-}
-
-function readFileAsDataURL(file, cb) {
-  const reader = new FileReader();
-  reader.onload = e => cb(e.target.result);
-  reader.readAsDataURL(file);
-}
-
-function handleDragOver(e, id) {
-  e.preventDefault();
-  document.getElementById(id).classList.add('over');
-}
-
-function handleDragLeave(id) {
-  document.getElementById(id).classList.remove('over');
-}
-
-function handleImageDrop(e) {
-  e.preventDefault();
-  document.getElementById('imageDrop').classList.remove('over');
-  const file = e.dataTransfer.files[0];
-  if (file && file.type.startsWith('image/')) {
-    readFileAsDataURL(file, data => {
-      currentImageData = data;
-      document.getElementById('imagePreview').textContent = '✓ ' + file.name;
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }
-}
+  }, { threshold: 0.1 });
 
-function handleVideoDrop(e) {
-  e.preventDefault();
-  document.getElementById('videoDrop').classList.remove('over');
-  const file = e.dataTransfer.files[0];
-  if (file && file.type.startsWith('video/')) {
-    readFileAsDataURL(file, data => {
-      currentVideoData = data;
-      document.getElementById('videoFilePreview').textContent = '✓ ' + file.name;
-    });
-  }
-}
-
-// close modal on overlay click
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-// ─── INTERSECTION OBSERVER ─────────────────────────────────
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// ─── INIT ─────────────────────────────────────────────────
-renderProjects();
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
