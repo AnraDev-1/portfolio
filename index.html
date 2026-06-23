@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andrei Rafael — Game Developer & Pixel Artist</title>
+<title>Andrei Rafael — Game Developer - Writer - Game Designer - Digital Artist</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -34,7 +34,6 @@
     overflow-x: hidden;
   }
 
-  /* Scanline overlay */
   body::before {
     content: '';
     position: fixed;
@@ -50,7 +49,6 @@
     z-index: 9999;
   }
 
-  /* ─── NAV ─────────────────────────────── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -90,7 +88,6 @@
 
   .nav-links a:hover { color: var(--neon); }
 
-  /* ─── HERO ────────────────────────────── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -110,7 +107,6 @@
     opacity: 0.5;
   }
 
-  /* Red gradient glow */
   .hero-glow {
     position: absolute;
     width: 700px; height: 700px;
@@ -224,7 +220,6 @@
     box-shadow: 0 0 18px rgba(255,34,68,0.3);
   }
 
-  /* ─── AVATAR ──────────────────────────── */
   .hero-avatar-wrap {
     display: flex;
     justify-content: center;
@@ -287,7 +282,6 @@
     line-height: 2;
   }
 
-  /* Stats */
   .hero-stats {
     display: flex;
     gap: 32px;
@@ -310,7 +304,6 @@
     margin-top: 4px;
   }
 
-  /* ─── SECTIONS ────────────────────────── */
   section {
     padding: 100px 48px;
     max-width: 1100px;
@@ -343,7 +336,6 @@
     box-shadow: 0 0 10px rgba(255,34,68,0.5);
   }
 
-  /* ─── EXPERIENCE ──────────────────────── */
   .exp-list { display: flex; flex-direction: column; gap: 40px; }
 
   .exp-card {
@@ -414,7 +406,6 @@
     top: 3px;
   }
 
-  /* ─── SKILLS ──────────────────────────── */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -476,7 +467,6 @@
     color: var(--neon);
   }
 
-  /* ─── PROJECTS ────────────────────────── */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -497,7 +487,6 @@
     transform: translateY(-4px);
   }
 
-  /* Gradient overlay on image */
   .project-media-wrap {
     position: relative;
     width: 100%;
@@ -563,7 +552,6 @@
     line-height: 1.6;
   }
 
-  /* ─── CONTACT ─────────────────────────── */
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -615,7 +603,6 @@
     font-size: 14px;
   }
 
-  /* ─── EDUCATION ───────────────────────── */
   .edu-card {
     padding: 32px;
     background: var(--panel);
@@ -656,7 +643,6 @@
     white-space: nowrap;
   }
 
-  /* ─── FOOTER ──────────────────────────── */
   footer {
     border-top: 1px solid var(--border);
     padding: 40px 48px;
@@ -670,7 +656,6 @@
 
   footer span { color: var(--neon); }
 
-  /* ─── ANIMATIONS ──────────────────────── */
   .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -682,7 +667,6 @@
     transform: translateY(0);
   }
 
-  /* ─── RESPONSIVE ──────────────────────── */
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { gap: 16px; }
@@ -698,7 +682,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">AR.DEV</div>
   <ul class="nav-links">
@@ -710,7 +693,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero" id="about">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
@@ -719,7 +701,7 @@
     <div>
       <p class="hero-label">[ PLAYER ONE ]</p>
       <h1 class="hero-name">ANDREI<br><span>RAFAEL</span></h1>
-      <p class="hero-role">Game Developer & Pixel Artist</p>
+      <p class="hero-role">Game Developer - Writer - Game Designer - Digital Artist</p>
       <p class="hero-about">
         Aspiring game developer and designer with hands-on experience building 2D projects in Construct 2. I create my own game assets as a pixel artist using Aseprite and write poetry, strengthening my visual and narrative approach to game development.
       </p>
@@ -743,20 +725,10 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════
-         PROFILE PHOTO
-         ───────────────────────────────────────────────────────
-         To add your photo:
-           1. Place your image file (e.g. "photo.jpg") in the
-              same folder as this HTML file.
-           2. Replace the <div class="avatar-placeholder"> block
-              below with:
-                <img src="photo.jpg" alt="Andrei Rafael">
-         ═══════════════════════════════════════════════════════ -->
     <div class="hero-avatar-wrap">
       <div class="avatar-frame">
         <div class="avatar-img">
-          <div class="avatar-placeholder">[ ADD YOUR<br>PHOTO HERE ]<br><br>See comment<br>in code</div>
+          <img src="photo.jpg" alt="Andrei Rafael">
         </div>
       </div>
     </div>
@@ -764,7 +736,6 @@
   </div>
 </div>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <p class="section-tag">// EXPERIENCE</p>
   <h2 class="section-title">LEVEL LOG</h2>
@@ -802,22 +773,6 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════════════════════════
-     PROJECTS SECTION
-     ═══════════════════════════════════════════════════════════
-
-     HOW TO ADD A PROJECT:
-     Copy one of the project-card blocks below and paste it
-     inside <div class="projects-grid"> before the closing </div>.
-
-     Each card has three things to fill in:
-       1. TYPE     → the small label (e.g. GAME, PIXEL ART, ANIMATION)
-       2. TITLE    → the project name in the pixel font
-       3. DESC     → a short description paragraph
-       4. IMAGE    → see the instructions inside each card
-
-     ═══════════════════════════════════════════════════════════ -->
 <section id="projects" style="max-width:1100px;margin:0 auto;padding:100px 48px;">
   <div style="margin-bottom:40px;">
     <p class="section-tag">// PROJECTS</p>
@@ -826,61 +781,27 @@
   </div>
 
   <div class="projects-grid">
-
-    <!-- ───────────────────────────────────────────────────────
-         PROJECT CARD 1  ← Edit or delete this example
-         ─────────────────────────────────────────────────────── -->
     <div class="project-card">
-
-      <!-- IMAGE for this card
-           Option A — local file:
-             Replace "YOUR-IMAGE.png" with your filename,
-             then put the image in the same folder as this HTML.
-               <img src="YOUR-IMAGE.png" alt="Project name" class="project-media">
-
-           Option B — no image yet:
-             Leave the placeholder div below as-is.        -->
       <div class="project-media-wrap">
         <div class="project-media-placeholder">🎮</div>
-        <!-- SWAP THE LINE ABOVE FOR THIS WHEN READY:
-        <img src="YOUR-IMAGE.png" alt="Project Title" class="project-media">
-        -->
       </div>
-
       <div class="project-body">
-        <div class="project-type">GAME</div>  <!-- ← Change type here -->
-        <h3 class="project-title">YOUR PROJECT TITLE</h3>  <!-- ← Change title here -->
-        <p class="project-desc">Write a short description of this project here. What is it about? What did you build or design?</p>  <!-- ← Change description here -->
+        <div class="project-type">GAME</div>
+        <h3 class="project-title">YOUR PROJECT TITLE</h3>
+        <p class="project-desc">Write a short description of this project here. What is it about? What did you build or design?</p>
       </div>
     </div>
 
-
-    <!-- ───────────────────────────────────────────────────────
-         PROJECT CARD 2  ← Copy this block to add more projects
-         ─────────────────────────────────────────────────────── -->
     <div class="project-card">
-
       <div class="project-media-wrap">
         <div class="project-media-placeholder">🖼️</div>
-        <!-- SWAP THE LINE ABOVE FOR THIS WHEN READY:
-        <img src="YOUR-IMAGE.png" alt="Project Title" class="project-media">
-        -->
       </div>
-
       <div class="project-body">
-        <div class="project-type">PIXEL ART</div>  <!-- ← Change type here -->
-        <h3 class="project-title">YOUR PROJECT TITLE</h3>  <!-- ← Change title here -->
-        <p class="project-desc">Write a short description of this project here. What is it about? What did you build or design?</p>  <!-- ← Change description here -->
+        <div class="project-type">PIXEL ART</div>
+        <h3 class="project-title">YOUR PROJECT TITLE</h3>
+        <p class="project-desc">Write a short description of this project here. What is it about? What did you build or design?</p>
       </div>
     </div>
-
-
-    <!-- ───────────────────────────────────────────────────────
-         ADD MORE CARDS HERE
-         Just copy one of the project-card blocks above
-         and paste it right here, then fill in the details.
-         ─────────────────────────────────────────────────────── -->
-
 
   </div>
 </section>
@@ -973,7 +894,7 @@
 </section>
 
 <footer>
-  <span>ANDREI RAFAEL</span> — GAME DEVELOPER & PIXEL ARTIST — DAVAO DEL SUR, PH
+  <span>ANDREI RAFAEL</span> — GAME DEVELOPER - WRITER - GAME DESIGNER - DIGITAL ARTIST — DAVAO DEL SUR, PH
 </footer>
 
 <script>
