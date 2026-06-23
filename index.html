@@ -682,7 +682,8 @@
 </head>
 <body>
 
-<nav>
+ <!-- NAV: Main site navigation -->
+ <nav>
   <div class="nav-logo">AR.DEV</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -693,7 +694,8 @@
   </ul>
 </nav>
 
-<div class="hero" id="about">
+ <!-- HERO / PROFILE: Main introduction and profile photo -->
+ <div class="hero" id="about">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-glow-right"></div>
@@ -725,10 +727,12 @@
       </div>
     </div>
 
+    <!-- PROFILE PHOTO: place your image file here (photo.jpg) in the same folder
+         or update the <img src="..."> path to match your filename. -->
     <div class="hero-avatar-wrap">
       <div class="avatar-frame">
         <div class="avatar-img">
-          <img src="photo.jpg" alt="Andrei Rafael">
+          <img src="Graduation%20Pic.png" alt="Andrei Rafael">
         </div>
       </div>
     </div>
@@ -736,8 +740,9 @@
   </div>
 </div>
 
-<section id="experience">
-  <p class="section-tag">// EXPERIENCE</p>
+ <!-- EXPERIENCE: timeline / past roles -->
+ <section id="experience">
+  <p class="section-tag">EXPERIENCE</p>
   <h2 class="section-title">LEVEL LOG</h2>
   <div class="section-divider"></div>
   <div class="exp-list fade-in">
@@ -775,7 +780,8 @@
 
 <section id="projects" style="max-width:1100px;margin:0 auto;padding:100px 48px;">
   <div style="margin-bottom:40px;">
-    <p class="section-tag">// PROJECTS</p>
+    <!-- PROJECTS: showcases of your games and art -->
+    <p class="section-tag">PROJECTS</p>
     <h2 class="section-title">MY BUILDS</h2>
     <div class="section-divider" style="margin-bottom:0"></div>
   </div>
@@ -807,9 +813,9 @@
 </section>
 
 
-<!-- SKILLS -->
-<section id="skills">
-  <p class="section-tag">// SKILLS & TOOLS</p>
+ <!-- SKILLS: strengths and tools -->
+ <section id="skills">
+  <p class="section-tag">SKILLS & TOOLS</p>
   <h2 class="section-title">STAT SHEET</h2>
   <div class="section-divider"></div>
 
@@ -832,7 +838,7 @@
   </div>
 
   <div style="margin-top:60px;">
-    <p class="section-tag" style="margin-bottom:20px;">// LANGUAGES SPOKEN</p>
+    <p class="section-tag" style="margin-bottom:20px;">LANGUAGES SPOKEN</p>
     <div class="tools-row">
       <span class="tool-tag" style="border-color:var(--neon);color:var(--neon);">English</span>
       <span class="tool-tag" style="border-color:var(--neon);color:var(--neon);">Filipino</span>
@@ -841,9 +847,9 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <p class="section-tag">// EDUCATION</p>
+ <!-- EDUCATION: academic background -->
+ <section id="education">
+  <p class="section-tag">EDUCATION</p>
   <h2 class="section-title">TRAINING ARC</h2>
   <div class="section-divider"></div>
   <div class="edu-card fade-in">
@@ -856,9 +862,9 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <p class="section-tag">// CONTACT</p>
+ <!-- CONTACT: ways for people to reach you -->
+ <section id="contact">
+  <p class="section-tag">CONTACT</p>
   <h2 class="section-title">SEND MESSAGE</h2>
   <div class="section-divider"></div>
   <div class="contact-grid fade-in">
@@ -893,12 +899,13 @@
   </div>
 </section>
 
+<!-- FOOTER: site credits and location -->
 <footer>
   <span>ANDREI RAFAEL</span> — GAME DEVELOPER - WRITER - GAME DESIGNER - DIGITAL ARTIST — DAVAO DEL SUR, PH
 </footer>
 
+<!-- SCRIPT: small page scripts (observers, interactions) -->
 <script>
-  // Fade-in on scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('visible');
