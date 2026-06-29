@@ -7,7 +7,7 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open DreiYorr - Dev - Portfolio.html",
+            "name": "Open Anraev - Dev - Portfolio.html",
             "file": "d:\\Personal Projects\\Portfolio\\Codes\\Anraev - Dev - Portfolio.html",
         }
     ]
