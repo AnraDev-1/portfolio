@@ -702,7 +702,7 @@
   .skills-section { padding: 100px 0; border-bottom: 1px solid var(--border); }
   .skills-layout {
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 240px 1fr;
     gap: 0;
     border: 1px solid var(--border);
   }
@@ -721,6 +721,7 @@
     align-items: center;
     justify-content: space-between;
   }
+  .skill-nav-item:last-child { border-bottom: none; }
   .skill-nav-item:hover { color: var(--text); background: rgba(255,255,255,0.02); }
   .skill-nav-item.active {
     color: var(--text);
@@ -750,7 +751,7 @@
   .skill-bars { display: flex; flex-direction: column; gap: 20px; }
   .skill-bar-row {
     display: grid;
-    grid-template-columns: 160px 1fr 72px;
+    grid-template-columns: 160px 1fr 120px;
     align-items: center;
     gap: 16px;
   }
@@ -770,164 +771,32 @@
     transform: scaleX(0);
   }
   @keyframes bar-fill { to { transform: scaleX(1); } }
-  .skill-bar-pct { font-size: 11px; font-weight: 600; color: var(--text-muted); text-align: right; width: 72px; white-space: nowrap; justify-self: end; }
-
-  /* ═══════════════════════════════════════════
-     NEON DISC PIE CHART
-  ═══════════════════════════════════════════ */
-  .neon-chart-layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 36px;
-    align-items: center;
-  }
-
-  .neon-chart-svg-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    position: relative;
-  }
-
-  .neon-chart-svg-wrap svg {
-    width: 100%;
-    max-width: 240px;
-    height: auto;
-    display: block;
-    /* subtle ambient background behind the chart */
-    filter: drop-shadow(0 0 28px rgba(255,34,0,0.22));
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-
-  .neon-chart-svg-wrap .pie-labels {
-    transform-box: fill-box;
-    transform-origin: 140px 140px;
-  }
-
-  .pie-labels text {
-    text-rendering: optimizeLegibility;
-    font-feature-settings: 'liga' 0;
-  }
-
-
-  .neon-iq-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border: 1px solid rgba(166,28,28,0.35);
-    background: rgba(166,28,28,0.06);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  .neon-iq-badge .iq-val {
-    font-family: var(--font-serif);
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--text);
-    text-shadow: 0 0 14px rgba(255,34,0,0.55);
-    letter-spacing: 0;
-  }
-
-  .neon-chart-meta {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-
-  @keyframes sword-spin {
-    to { transform: rotateX(18deg) rotateY(346deg); }
-  }
-
-  .neon-chart-note {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.75;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .neon-legend {
-    display: grid;
-    gap: 10px;
-    justify-content: start;
-    width: fit-content;
-  }
-
-  .neon-legend-row {
-    display: grid;
-    grid-template-columns: minmax(112px, max-content) 42px;
-    justify-content: start;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    transform: translateX(12px);
-    animation: neon-legend-in 420ms cubic-bezier(0.2,0.8,0.2,1) forwards;
-  }
-
-  .neon-legend-val {
-    justify-self: end;
-    min-width: 36px;
-  }
-
-  @keyframes neon-legend-in {
-    to { opacity: 1; transform: none; }
-  }
-
-  .neon-legend-name {
+  .skill-bar-pct {
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .neon-legend-val {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text);
     text-align: right;
-    text-shadow: 0 0 10px rgba(255,34,0,0.45);
-  }
-
-  .neon-legend-bar-track {
-    height: 3px;
-    background: rgba(255,34,0,0.12);
-    border: 1px solid rgba(255,34,0,0.18);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .neon-legend-bar-fill {
-    height: 100%;
-    background: linear-gradient(to right, #A61C1C, #FF2200);
-    box-shadow: 0 0 10px rgba(255,34,0,0.65);
-    transform: scaleX(0);
-    transform-origin: left;
-    animation: bar-fill 1.3s cubic-bezier(0.16,1,0.3,1) forwards;
+    white-space: nowrap;
+    justify-self: end;
   }
 
   /* ═══════════════════════════════════════════
      PROJECTS TAB SLIDER
   ═══════════════════════════════════════════ */
   .proj-section-wrap {
-    margin-top: 48px;
     border: 1px solid var(--border);
     overflow: hidden;
+    background:
+      linear-gradient(135deg, rgba(166,28,28,0.07), transparent 34%),
+      var(--surface-2);
+    box-shadow: var(--shadow-card);
   }
 
   .proj-section-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    gap: 24px;
     padding: 18px 28px;
     border-bottom: 1px solid var(--border);
     background: var(--surface-2);
@@ -943,7 +812,6 @@
     align-items: center;
     gap: 10px;
   }
-
   .proj-section-eyebrow::before {
     content: '';
     width: 20px;
@@ -951,13 +819,23 @@
     background: var(--crimson);
   }
 
+  .proj-section-copy {
+    max-width: 520px;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
   .proj-tab-counter {
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.12em;
     color: var(--text-muted);
+    flex-shrink: 0;
+    padding-top: 2px;
+    text-align: right;
   }
-
   .proj-tab-counter em {
     color: var(--text);
     font-style: normal;
@@ -971,7 +849,6 @@
     position: relative;
   }
 
-  /* Sliding indicator line */
   .proj-tab-indicator {
     position: absolute;
     bottom: 0;
@@ -985,6 +862,7 @@
 
   .proj-tab-btn {
     flex: 1;
+    min-height: 52px;
     padding: 18px 20px;
     background: transparent;
     border: none;
@@ -1004,11 +882,9 @@
     gap: 10px;
     white-space: nowrap;
   }
-
   .proj-tab-btn:last-child { border-right: none; }
   .proj-tab-btn:hover { color: var(--text); background: rgba(255,255,255,0.02); }
   .proj-tab-btn.active { color: var(--text); background: rgba(166,28,28,0.04); }
-
   .proj-tab-btn .tab-num {
     font-size: 9px;
     font-weight: 700;
@@ -1016,7 +892,6 @@
     opacity: 0.7;
     letter-spacing: 0.05em;
   }
-
   .proj-tab-btn.active .tab-num { opacity: 1; }
 
   /* Slider Viewport */
@@ -1024,18 +899,17 @@
     overflow: hidden;
     position: relative;
     background: var(--surface-2);
+    min-height: 300px;
   }
 
   .proj-panel {
     display: none;
     padding: 36px;
   }
-
   .proj-panel.active {
     display: block;
     animation: proj-slide-in 0.44s cubic-bezier(0.22,1,0.36,1) both;
   }
-
   .proj-panel.slide-out-left {
     display: block;
     position: absolute;
@@ -1043,12 +917,10 @@
     animation: proj-slide-out-left 0.28s cubic-bezier(0.2,0.8,0.2,1) both;
     pointer-events: none;
   }
-
   @keyframes proj-slide-in {
     from { transform: translateX(64px); opacity: 0; }
     to   { transform: none; opacity: 1; }
   }
-
   @keyframes proj-slide-out-left {
     from { transform: none; opacity: 1; }
     to   { transform: translateX(-64px); opacity: 0; }
@@ -1057,7 +929,7 @@
   /* Project Cards Grid */
   .proj-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1px;
     background: var(--border);
   }
@@ -1068,11 +940,14 @@
     position: relative;
     overflow: hidden;
     transition: background 0.22s;
-    cursor: default;
+    cursor: pointer;
+    outline: none;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
   }
-
   .proj-card:hover { background: rgba(14,10,12,0.98); }
-
+  .proj-card:focus-visible { box-shadow: inset 0 0 0 2px var(--crimson); }
   .proj-card::before {
     content: '';
     position: absolute;
@@ -1083,7 +958,6 @@
     transform-origin: left;
     transition: transform 0.32s cubic-bezier(0.22,1,0.36,1);
   }
-
   .proj-card:hover::before { transform: scaleX(1); }
 
   /* Staggered card entrance */
@@ -1091,12 +965,10 @@
     opacity: 0;
     animation: proj-card-in 0.42s cubic-bezier(0.22,1,0.36,1) forwards;
   }
-
   .proj-panel.active .proj-card:nth-child(1) { animation-delay: 0.06s; }
   .proj-panel.active .proj-card:nth-child(2) { animation-delay: 0.13s; }
   .proj-panel.active .proj-card:nth-child(3) { animation-delay: 0.20s; }
   .proj-panel.active .proj-card:nth-child(4) { animation-delay: 0.27s; }
-
   @keyframes proj-card-in {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: none; }
@@ -1112,7 +984,6 @@
     line-height: 1;
     pointer-events: none;
   }
-
   .proj-card-type {
     font-size: 9px;
     font-weight: 700;
@@ -1124,7 +995,6 @@
     align-items: center;
     gap: 6px;
   }
-
   .proj-card-type-dot {
     width: 5px;
     height: 5px;
@@ -1132,7 +1002,6 @@
     transform: rotate(45deg);
     flex-shrink: 0;
   }
-
   .proj-card-title {
     font-family: var(--font-serif);
     font-size: 16px;
@@ -1141,20 +1010,28 @@
     margin-bottom: 10px;
     line-height: 1.3;
   }
-
   .proj-card-desc {
     font-size: 12px;
     color: var(--text-muted);
     line-height: 1.7;
     margin-bottom: 18px;
+    flex: 1;
   }
-
   .proj-card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
   }
 
+  .proj-card--featured {
+    background:
+      linear-gradient(150deg, rgba(217,119,6,0.08), transparent 42%),
+      var(--surface);
+  }
+  .proj-card--featured::before {
+    transform: scaleX(1);
+    background: linear-gradient(to right, var(--amber), var(--crimson));
+  }
   .proj-card--featured .proj-card-badge {
     display: inline-flex;
     align-items: center;
@@ -1174,121 +1051,7 @@
     border: 1px dashed var(--border);
     background: var(--surface-2);
   }
-
   .proj-card--wip::before { background: var(--border); }
-
-  .proj-empty-state {
-    min-height: 260px;
-    border: 1px dashed rgba(148,163,184,0.28);
-    background:
-      linear-gradient(135deg, rgba(166,28,28,0.05), transparent 46%),
-      rgba(18,20,26,0.72);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 34px;
-  }
-
-  .proj-empty-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    color: var(--crimson);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-
-  .proj-empty-kicker::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: var(--crimson);
-    transform: rotate(45deg);
-  }
-
-  .proj-empty-title {
-    font-family: var(--font-serif);
-    color: var(--text);
-    font-size: clamp(20px, 3vw, 30px);
-    line-height: 1.15;
-    margin-bottom: 10px;
-  }
-
-  .proj-empty-copy {
-    color: var(--text-muted);
-    font-size: 13px;
-    line-height: 1.8;
-    max-width: 560px;
-  }
-
-  .proj-section-wrap {
-    margin-top: 0;
-    background:
-      linear-gradient(135deg, rgba(166,28,28,0.07), transparent 34%),
-      var(--surface-2);
-    box-shadow: var(--shadow-card);
-  }
-
-  .proj-section-header {
-    gap: 24px;
-    align-items: flex-start;
-  }
-
-  .proj-section-copy {
-    max-width: 520px;
-    margin-top: 8px;
-    font-size: 12px;
-    line-height: 1.7;
-    color: var(--text-muted);
-  }
-
-  .proj-tab-counter {
-    flex-shrink: 0;
-    padding-top: 2px;
-    text-align: right;
-  }
-
-  .proj-tab-btn {
-    min-height: 52px;
-  }
-
-  .proj-slider-vp {
-    min-height: 300px;
-  }
-
-  .proj-card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-
-  .proj-card {
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .proj-card:focus-visible {
-    box-shadow: inset 0 0 0 2px var(--crimson);
-  }
-
-  .proj-card--featured {
-    background:
-      linear-gradient(150deg, rgba(217,119,6,0.08), transparent 42%),
-      var(--surface);
-  }
-
-  .proj-card--featured::before {
-    transform: scaleX(1);
-    background: linear-gradient(to right, var(--amber), var(--crimson));
-  }
-
-  .proj-card-desc {
-    flex: 1;
-  }
 
   .proj-card-action {
     width: fit-content;
@@ -1305,7 +1068,6 @@
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
   }
-
   .proj-card:hover .proj-card-action,
   .proj-card-action:focus-visible {
     background: var(--crimson);
@@ -1313,270 +1075,50 @@
     transform: translateX(3px);
   }
 
-  body.drawer-open {
-    overflow: hidden;
-  }
-
-  .project-drawer {
-    position: fixed;
-    inset: 0;
-    z-index: 220;
-    pointer-events: none;
-    visibility: hidden;
-  }
-
-  .project-drawer.is-open {
-    pointer-events: auto;
-    visibility: visible;
-  }
-
-  .project-drawer-backdrop {
-    position: absolute;
-    inset: 0;
-    border: 0;
-    background: rgba(2,3,6,0.72);
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    cursor: pointer;
-    transition: opacity 260ms ease;
-  }
-
-  .project-drawer.is-open .project-drawer-backdrop {
-    opacity: 1;
-  }
-
-  .project-drawer-panel {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: min(50vw, 680px);
-    height: 100%;
-    padding: 32px;
-    border-left: 1px solid var(--border);
-    border-top-left-radius: 28px;
-    border-bottom-left-radius: 28px;
+  .proj-empty-state {
+    min-height: 260px;
+    border: 1px dashed rgba(148,163,184,0.28);
     background:
-      linear-gradient(155deg, rgba(166,28,28,0.08), transparent 38%),
-      #101217;
-    box-shadow: -28px 0 70px rgba(0,0,0,0.55);
-    transform: translateX(105%);
-    transition: transform 420ms cubic-bezier(0.22,1,0.36,1);
-    overflow-y: auto;
-  }
-
-  .project-drawer.is-open .project-drawer-panel {
-    transform: translateX(0);
-  }
-
-  .project-drawer-top {
+      linear-gradient(135deg, rgba(166,28,28,0.05), transparent 46%),
+      rgba(18,20,26,0.72);
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    justify-content: center;
+    padding: 34px;
   }
-
-  .project-drawer-kicker {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--crimson);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
-  .project-drawer-title {
-    font-family: var(--font-serif);
-    font-size: clamp(28px, 4vw, 40px);
-    line-height: 1.08;
-    color: var(--text);
-  }
-
-  .project-drawer-close {
-    width: 38px;
-    height: 38px;
-    flex-shrink: 0;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-muted);
-    cursor: pointer;
+  .proj-empty-kicker {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
-  }
-
-  .project-drawer-close:hover,
-  .project-drawer-close:focus-visible {
-    color: var(--text);
-    border-color: var(--crimson);
-    background: rgba(166,28,28,0.1);
-  }
-
-  .project-drawer-body {
-    padding-top: 28px;
-  }
-
-  .project-drawer-media {
-    margin-bottom: 28px;
-  }
-
-  .project-drawer-summary-wrap {
-    display: grid;
-    grid-template-columns: minmax(120px, 140px) 1fr;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 24px;
-  }
-
-  .project-drawer-summary {
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.8;
-    margin: 0;
-  }
-
-  .project-drawer-meta {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 24px;
-  }
-
-  .project-drawer-media {
-    margin-bottom: 24px;
-  }
-
-  .project-drawer-media-inner {
-    display: grid;
-    gap: 18px;
-  }
-
-  .project-drawer-media-player {
-    width: 100%;
-    border-radius: 22px;
-    overflow: hidden;
-    background: #000;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .project-drawer-media-player video {
-    width: 100%;
-    height: auto;
-    min-height: 250px;
-    display: block;
-    object-fit: cover;
-    background: #000;
-  }
-
-  .project-drawer-media-logo {
-    max-width: 140px;
-    border: 1px solid rgba(255, 40, 40, 0.8);
-    box-shadow: 0 0 18px rgba(255, 40, 40, 0.35), 0 0 30px rgba(255, 40, 40, 0.18);
-    background: rgba(20, 12, 16, 0.9);
-    border-radius: 24px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .project-drawer-media-logo-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .project-drawer-media-logo img {
-    width: 100%;
-    height: auto;
-    max-height: 90px;
-    object-fit: contain;
-  }
-
-  .project-drawer-summary-wrap {
-    display: grid;
-    grid-template-columns: minmax(120px, 140px) 1fr;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 24px;
-  }
-
-  .project-drawer-summary {
-    color: var(--text-muted);
-    font-size: 14px;
-    line-height: 1.8;
-    margin: 0;
-  }
-
-  @media (max-width: 900px) {
-    .project-drawer-panel {
-      width: 100vw;
-      padding: 24px;
-    }
-
-    .project-drawer-summary-wrap {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .project-meta-item {
-    background: var(--surface-2);
-    padding: 14px;
-  }
-
-  .project-meta-label {
-    display: block;
-    margin-bottom: 4px;
+    gap: 8px;
+    margin-bottom: 12px;
     color: var(--crimson);
     font-size: 9px;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
   }
-
-  .project-meta-value {
-    color: var(--text);
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  .project-drawer-list {
-    list-style: none;
-    display: grid;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .project-drawer-list li {
-    position: relative;
-    padding-left: 18px;
-    color: var(--text-muted);
-    font-size: 13px;
-    line-height: 1.7;
-  }
-
-  .project-drawer-list li::before {
+  .proj-empty-kicker::before {
     content: '';
-    position: absolute;
-    left: 0;
-    top: 0.72em;
     width: 6px;
     height: 6px;
     background: var(--crimson);
     transform: rotate(45deg);
   }
-
-  .project-drawer-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  .proj-empty-title {
+    font-family: var(--font-serif);
+    color: var(--text);
+    font-size: clamp(20px, 3vw, 30px);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .proj-empty-copy {
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 560px;
   }
 
+  /* WIP label */
   .wip-label {
     display: inline-flex;
     align-items: center;
@@ -1591,17 +1133,217 @@
     background: var(--surface);
     margin-bottom: 10px;
   }
-
   .wip-dot {
     width: 5px; height: 5px;
     background: var(--amber);
     border-radius: 50%;
     animation: wip-pulse 1.5s ease-in-out infinite;
   }
-
   @keyframes wip-pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
+  }
+
+  /* PROJECT DRAWER */
+  body.drawer-open { overflow: hidden; }
+
+  .project-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 220;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .project-drawer.is-open {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  .project-drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgba(2,3,6,0.72);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity 260ms ease;
+  }
+  .project-drawer.is-open .project-drawer-backdrop { opacity: 1; }
+
+  .project-drawer-panel {
+    position: absolute;
+    top: 0; right: 0;
+    width: min(50vw, 680px);
+    height: 100%;
+    padding: 32px;
+    border-left: 1px solid var(--border);
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    background:
+      linear-gradient(155deg, rgba(166,28,28,0.08), transparent 38%),
+      #101217;
+    box-shadow: -28px 0 70px rgba(0,0,0,0.55);
+    transform: translateX(105%);
+    transition: transform 420ms cubic-bezier(0.22,1,0.36,1);
+    overflow-y: auto;
+  }
+  .project-drawer.is-open .project-drawer-panel { transform: translateX(0); }
+
+  .project-drawer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .project-drawer-kicker {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--crimson);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .project-drawer-title {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.08;
+    color: var(--text);
+  }
+  .project-drawer-close {
+    width: 38px; height: 38px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .project-drawer-close:hover,
+  .project-drawer-close:focus-visible {
+    color: var(--text);
+    border-color: var(--crimson);
+    background: rgba(166,28,28,0.1);
+  }
+
+  .project-drawer-body { padding-top: 28px; }
+
+  .project-drawer-media { margin-bottom: 24px; }
+  .project-drawer-media-player {
+    width: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .project-drawer-media-player video {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    display: block;
+    object-fit: cover;
+    background: #000;
+  }
+
+  .project-drawer-summary-wrap {
+    display: grid;
+    grid-template-columns: minmax(120px, 140px) 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 24px;
+  }
+  .project-drawer-summary {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+  }
+  /* When there's no logo, summary spans full width */
+  .project-drawer-summary-wrap.no-logo {
+    grid-template-columns: 1fr;
+  }
+
+  .project-drawer-media-logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .project-drawer-media-logo {
+    max-width: 140px;
+    border: 1px solid rgba(255,40,40,0.8);
+    box-shadow: 0 0 18px rgba(255,40,40,0.35), 0 0 30px rgba(255,40,40,0.18);
+    background: rgba(20,12,16,0.9);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .project-drawer-media-logo img {
+    width: 100%;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+  }
+
+  .project-drawer-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .project-meta-item {
+    background: var(--surface-2);
+    padding: 14px;
+  }
+  .project-meta-label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--crimson);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .project-meta-value {
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .project-drawer-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .project-drawer-list li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .project-drawer-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 6px;
+    height: 6px;
+    background: var(--crimson);
+    transform: rotate(45deg);
+  }
+  .project-drawer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   /* TIMELINE */
@@ -1669,7 +1411,6 @@
     color: var(--text-muted);
     cursor: pointer;
     transition: color 0.2s, background 0.2s;
-    position: relative;
     gap: 12px;
   }
   .contact-link-item:last-child { border-bottom: none; }
@@ -1788,11 +1529,11 @@
   }
 
   /* HOVER TRANSITIONS */
-  .work-card:hover { transform: translateY(-6px) scale(1.01); }
-  .timeline-item:hover { transform: translateY(-4px); }
   .work-card, .timeline-item {
     transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), background 0.25s;
   }
+  .work-card:hover { transform: translateY(-6px) scale(1.01); }
+  .timeline-item:hover { transform: translateY(-4px); }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -1813,18 +1554,20 @@
     .skills-layout { grid-template-columns: 1fr; }
     .skills-nav { border-right: none; border-bottom: 1px solid var(--border); display: flex; overflow-x: auto; }
     .skill-nav-item { border-bottom: none; border-right: 1px solid var(--border); white-space: nowrap; }
+    .skill-nav-item:last-child { border-right: none; border-bottom: none; }
     .skill-nav-item.active { border-left: none; border-bottom: 2px solid var(--crimson); }
     .contact-grid { grid-template-columns: 1fr; }
     .contact-left { border-right: none; border-bottom: 1px solid var(--border); }
     .footer-top { grid-template-columns: 1fr; }
     .footer-nav { flex-wrap: wrap; gap: 16px; }
-    .neon-chart-layout { grid-template-columns: 1fr; }
     .proj-section-header { flex-direction: column; }
     .proj-tab-counter { text-align: left; }
     .proj-tab-btn { padding: 14px 12px; font-size: 10px; }
     .proj-card-grid { grid-template-columns: 1fr; }
     .project-drawer-panel { width: 100vw; padding: 24px; }
     .project-drawer-meta { grid-template-columns: 1fr; }
+    .project-drawer-summary-wrap { grid-template-columns: 1fr; }
+    .skill-bar-row { grid-template-columns: 140px 1fr 80px; }
   }
 </style>
 </head>
@@ -2041,9 +1784,6 @@
       <p>Projects born from necessity, sharpened through iteration, and built to last.</p>
     </div>
 
-    <!-- ══════════════════════════════════════
-         PROJECTS TAB SLIDER
-    ══════════════════════════════════════ -->
     <div class="proj-section-wrap reveal-on-scroll" data-delay="1">
       <div class="proj-section-header">
         <div>
@@ -2108,7 +1848,7 @@
               <span class="proj-card-num">02</span>
               <div class="wip-label"><span class="wip-dot"></span>In Development</div>
               <div class="proj-card-type"><span class="proj-card-type-dot"></span>Next Project</div>
-              <h4 class="proj-card-title">Unannounced</h4>
+              <h4 class="proj-card-title">TheoRise</h4>
               <p class="proj-card-desc">A new mobile application currently in active planning and development. Expanding further into Android and exploring new problem spaces. Details to be revealed upon completion.</p>
               <div class="proj-card-tags">
                 <span class="stack-tag">Android Studio</span>
@@ -2133,6 +1873,7 @@
       </div><!-- end proj-slider-vp -->
     </div><!-- end proj-section-wrap -->
 
+    <!-- PROJECT DRAWER -->
     <div class="project-drawer" id="project-drawer" aria-hidden="true">
       <button type="button" class="project-drawer-backdrop" id="project-drawer-backdrop" aria-label="Close project record"></button>
       <aside class="project-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="project-drawer-title" tabindex="-1">
@@ -2147,7 +1888,7 @@
         </div>
         <div class="project-drawer-body">
           <div class="project-drawer-media" id="project-drawer-media"></div>
-          <div class="project-drawer-summary-wrap">
+          <div class="project-drawer-summary-wrap" id="project-drawer-summary-wrap">
             <div class="project-drawer-media-logo-wrapper" id="project-drawer-logo"></div>
             <p class="project-drawer-summary" id="project-drawer-summary"></p>
           </div>
@@ -2172,9 +1913,7 @@
       <div class="skills-nav" id="skills-nav">
         <div class="skill-nav-item active" data-tab="craft">Craft <span class="skill-count">03</span></div>
         <div class="skill-nav-item" data-tab="dev">Dev <span class="skill-count">02</span></div>
-        <div class="skill-nav-item" data-tab="soft">Attributes <span class="skill-count">06</span></div>
         <div class="skill-nav-item" data-tab="lang">Tongues <span class="skill-count">03</span></div>
-        <div class="skill-nav-item" data-tab="tests">Tests <span class="skill-count">05</span></div>
       </div>
       <div class="skills-content" id="skills-content"></div>
     </div>
@@ -2475,6 +2214,7 @@
 })();
 </script>
 
+<!-- SKILLS -->
 <script>
 const SKILLS = {
   craft: {
@@ -2492,17 +2232,6 @@ const SKILLS = {
       { name: 'Firebase',       pct: 64 },
     ]
   },
-  soft: {
-    title: 'Character Attributes',
-    items: [
-      { name: 'Creativity',        pct: 95 },
-      { name: 'Critical Thinking', pct: 88 },
-      { name: 'Communication',     pct: 85 },
-      { name: 'Leadership',        pct: 80 },
-      { name: 'Teamwork',          pct: 90 },
-      { name: 'Organized',         pct: 83 },
-    ]
-  },
   lang: {
     title: 'Tongues Known',
     items: [
@@ -2513,166 +2242,13 @@ const SKILLS = {
   }
 };
 
-/* ─── Helpers ─── */
-function polarToCartesian(cx, cy, radius, angleDeg) {
-  const rad = (angleDeg - 90) * Math.PI / 180;
-  return { x: cx + radius * Math.cos(rad), y: cy + radius * Math.sin(rad) };
-}
-
-/* ─── Neon Pie Chart for Tests ─── */
-function buildNeonDiscChart() {
-  // DISC data
-  const disc = [
-    { name: 'Dominance',  pct: 38 },
-    { name: 'Steadiness', pct: 33 },
-    { name: 'Influence',  pct: 19 },
-    { name: 'Compliance', pct: 10 },
-  ];
-  const iqScore = '104';
-
-  // Boundary points on circle (cx=140, cy=140, r=110)
-  // Angles start at top (0°), go clockwise
-  // D=38% → 136.8°, S=33% → 255.6°, I=19% → 324°, C=10% → 360°
-  const CX = 140, CY = 140, R = 110;
-  const GAP = 3.5; // degrees gap between slices
-  const sliceColors = [
-    'rgba(255,34,0,0.18)',
-    'rgba(255,138,50,0.16)',
-    'rgba(255,98,40,0.12)',
-    'rgba(255,54,30,0.10)'
-  ];
-
-  let cumAngle = 0;
-  const slices = disc.map((d, index) => {
-    const sweep = (d.pct / 100) * 360;
-    const start = cumAngle + GAP / 2;
-    const end = cumAngle + sweep - GAP / 2;
-    const mid = cumAngle + sweep / 2;
-    const sp = polarToCartesian(CX, CY, R, start);
-    const ep = polarToCartesian(CX, CY, R, end);
-    const label = polarToCartesian(CX, CY, R - 28, mid);
-    const laf = sweep > 180 ? 1 : 0;
-    const fillD = `M${CX} ${CY} L${sp.x.toFixed(2)} ${sp.y.toFixed(2)} A${R} ${R} 0 ${laf} 1 ${ep.x.toFixed(2)} ${ep.y.toFixed(2)} Z`;
-    const arcD = `M${sp.x.toFixed(2)} ${sp.y.toFixed(2)} A${R} ${R} 0 ${laf} 1 ${ep.x.toFixed(2)} ${ep.y.toFixed(2)}`;
-    const boundary = cumAngle;
-    cumAngle += sweep;
-    return { ...d, fillD, arcD, start, end, mid, label, boundary, color: sliceColors[index] || 'rgba(220,18,0,0.07)' };
-  });
-
-  const divLines = slices.map(s => {
-    const pt = polarToCartesian(CX, CY, R, s.boundary);
-    return `<line x1="${CX}" y1="${CY}" x2="${pt.x.toFixed(2)}" y2="${pt.y.toFixed(2)}" stroke="#FF2200" stroke-width="2" stroke-linecap="round"/>`;
-  }).join('\n            ');
-
-  const fillPaths = slices.map(s =>
-    `<path d="${s.fillD}" fill="${s.color}"/>`
-  ).join('\n          ');
-
-  const arcStrokes = slices.map(s =>
-    `<path d="${s.arcD}" fill="none" stroke="#FF2200" stroke-width="2.5" stroke-linecap="butt"/>`
-  ).join('\n            ');
-
-  const fillerRings = `
-    <g opacity="0.16">
-      <circle cx="140" cy="140" r="98" fill="none" stroke="rgba(255,34,0,0.16)" stroke-width="1" stroke-dasharray="1 7"/>
-      <circle cx="140" cy="140" r="108" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="2 10"/>
-    </g>
-  `;
-
-  const sliceLabels = slices.map(s =>
-    `<text x="${s.label.x.toFixed(2)}" y="${s.label.y.toFixed(2)}" text-anchor="middle" fill="#FFFFFF" font-size="10" font-family="Inter, sans-serif" font-weight="700" opacity="0.95">${s.pct}</text>`
-  ).join('\n      ');
-
-  // Legend rows
-  const legendRows = disc.map((d, i) =>
-    `<div class="neon-legend-row" style="animation-delay:${i * 80 + 120}ms">
-        <span class="neon-legend-name">${d.name}</span>
-        <span class="neon-legend-val">${d.pct}</span>
-      </div>`
-  ).join('\n      ');
-
-  return `
-<div class="skill-group-title">Test Results</div>
-<div class="neon-chart-layout">
-
-  <!-- SVG Neon Pie Chart -->
-  <div class="neon-chart-svg-wrap">
-    <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DISC Profile Pie Chart">
-      <defs>
-        <!-- Multi-pass neon glow filter — mimics glowing neon tube -->
-        <filter id="neon-disc-f" x="-55%" y="-55%" width="210%" height="210%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="2"  result="b1"/>
-          <feGaussianBlur in="SourceGraphic" stdDeviation="7"  result="b2"/>
-          <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="b3"/>
-          <feMerge>
-            <feMergeNode in="b3"/>
-            <feMergeNode in="b2"/>
-            <feMergeNode in="b1"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-        <radialGradient id="disc-bg-rg" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stop-color="#1e0101"/>
-          <stop offset="65%"  stop-color="#0d0000"/>
-          <stop offset="100%" stop-color="#050506"/>
-        </radialGradient>
-      </defs>
-
-      <!-- Dark warm glow background removed to avoid black fill -->
-      <rect width="280" height="280" fill="none"/>
-      <circle cx="140" cy="140" r="136" fill="none"/>
-
-      ${fillerRings}
-      <!-- Subtle slice fills -->
-      ${fillPaths}
-
-      <!-- Neon elements — circle outline + divider lines + arcs all share the glow filter -->
-      <g filter="url(#neon-disc-f)">
-        <!-- Outer circle ring -->
-        <circle cx="140" cy="140" r="${R}" fill="none" stroke="#FF2200" stroke-width="2.5"/>
-        <!-- Segment divider lines from center -->
-        ${divLines}
-        <!-- Individual arc highlights (on top of circle) -->
-        ${arcStrokes}
-      </g>
-
-      <!-- Percentage labels inside slices -->
-      <g class="pie-labels">
-        ${sliceLabels}
-      </g>
-
-      <!-- Center glow dot -->
-      <circle cx="140" cy="140" r="5" fill="#FF3300" filter="url(#neon-disc-f)"/>
-    </svg>
-
-    <!-- IQ Badge below chart -->
-    <div class="neon-iq-badge">
-      IQ Score&nbsp;&nbsp;<span class="iq-val">${iqScore}</span>
-    </div>
-  </div>
-
-  <!-- Legend -->
-  <div class="neon-chart-meta">
-
-      ${legendRows}
-    </div>
-  </div>
-
-</div>`;
-}
-
-/* ─── Main skill builder ─── */
 function buildSkillHTML(tab) {
-  // Tests tab → neon pie chart
-  if (tab === 'tests') {
-    return buildNeonDiscChart();
-  }
-
   const data = SKILLS[tab];
+  if (!data) return '';
   const rows = data.items.map((item, i) => {
     const badge = item.displayValue
       ? item.displayValue
-      : (typeof item.pct === 'number' ? item.pct + '%' : (item.value || '—'));
+      : (typeof item.pct === 'number' ? item.pct + '%' : '—');
     const pct = Math.max(0, Math.min(100, typeof item.pct === 'number' ? item.pct : 0));
     return `
       <div class="skill-bar-row">
@@ -2689,7 +2265,6 @@ function buildSkillHTML(tab) {
 function renderSkills(tab, animate) {
   const content = document.getElementById('skills-content');
   if (!content) return;
-
   if (animate) {
     content.classList.add('tab-out');
     setTimeout(() => {
@@ -2927,9 +2502,7 @@ renderSkills('craft', false);
 })();
 </script>
 
-<!-- ══════════════════════════════════════════
-     PROJECTS SLIDER — Right-to-Left Switching
-══════════════════════════════════════════ -->
+<!-- PROJECTS SLIDER -->
 <script>
 (function () {
   'use strict';
@@ -2939,7 +2512,6 @@ renderSkills('craft', false);
   const indicator = document.getElementById('proj-indicator');
   const nav = document.getElementById('proj-tab-nav');
 
-  /* Position the sliding indicator line under the active tab */
   function positionIndicator(btn) {
     if (!indicator || !btn || !nav) return;
     const navRect = nav.getBoundingClientRect();
@@ -2948,7 +2520,6 @@ renderSkills('craft', false);
     indicator.style.width = btnRect.width + 'px';
   }
 
-  /* Run on load to set initial indicator */
   function initIndicator() {
     const activeBtn = document.querySelector('.proj-tab-btn.active');
     if (activeBtn) positionIndicator(activeBtn);
@@ -2957,7 +2528,6 @@ renderSkills('craft', false);
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initIndicator);
   } else {
-    // Small rAF delay lets layout settle
     requestAnimationFrame(initIndicator);
   }
 
@@ -2966,36 +2536,24 @@ renderSkills('craft', false);
     if (activeBtn) positionIndicator(activeBtn);
   });
 
-  /* Switch panels with right-to-left slide animation */
   function switchPanel(targetId, btn) {
     const currentPanel = document.querySelector('.proj-panel.active');
     const nextPanel    = document.getElementById('proj-panel-' + targetId);
-
     if (!nextPanel || nextPanel === currentPanel) return;
 
-    // Update tab states
     document.querySelectorAll('.proj-tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
-    // Move indicator
     positionIndicator(btn);
-
-    // Update counter label
     if (counter) counter.textContent = labels[targetId] || targetId;
 
-    // Animate out current panel (slide left)
     if (currentPanel) {
       currentPanel.classList.remove('active');
       currentPanel.classList.add('slide-out-left');
-
       currentPanel.addEventListener('animationend', function handler() {
         currentPanel.removeEventListener('animationend', handler);
         currentPanel.classList.remove('slide-out-left');
         currentPanel.style.display = 'none';
-
-        // Animate in next panel (slide from right)
         nextPanel.style.display = 'block';
-        // Force reflow so animation fires fresh
         void nextPanel.offsetWidth;
         nextPanel.classList.add('active');
       }, { once: true });
@@ -3006,7 +2564,6 @@ renderSkills('craft', false);
     }
   }
 
-  /* Tab click handler */
   if (nav) {
     nav.addEventListener('click', function (e) {
       const btn = e.target.closest('.proj-tab-btn');
@@ -3034,31 +2591,37 @@ renderSkills('craft', false);
     },
     "next-app": {
       kicker: "In Development",
-      title: "Unannounced App",
-      summary: "A planned Android application that expands the mobile-development shelf while keeping the details private until the concept is ready to present.",
-      meta: [["Type", "Mobile App"], ["Stack", "Android Studio, Kotlin"], ["Status", "Planning"], ["Reveal", "TBA"]],
+      title: "TheoRise",
+      summary: "An upcoming Android application project that is currently in the development phase. Details about the app's functionality and features will be revealed upon Alpha Stage.",
+      media: {
+        logo: "Files/Photos/TheoRise.png"
+        /* no video for this project for now muhehehehe, maybe soon :) */
+      },
+      meta: [["Type", "Mobile App"], ["Stack", "Android Studio, Kotlin"], ["Status", "In Development"], ["Reveal", "TBA"]],
       highlights: [
-        "Reserved for the next completed Android project.",
-        "Structured as a library slot so future work can be added without redesigning the page.",
-        "Prepared to document stack, role, highlights, and project outcomes."
+        "TBA",
+        "TBA",
+        "TBA"
       ],
-      tags: ["Android", "Kotlin", "Planning", "TBA"]
+      tags: ["Android", "Kotlin", "Firebase", "Cloudinary"]
     }
   };
 
-  const viewport = document.getElementById('proj-slider-vp');
-  const drawer = document.getElementById('project-drawer');
+  const viewport    = document.getElementById('proj-slider-vp');
+  const drawer      = document.getElementById('project-drawer');
   const drawerPanel = drawer ? drawer.querySelector('.project-drawer-panel') : null;
   const drawerClose = document.getElementById('project-drawer-close');
-  const drawerBackdrop = document.getElementById('project-drawer-backdrop');
-  const drawerKicker = document.getElementById('project-drawer-kicker');
-  const drawerTitle = document.getElementById('project-drawer-title');
-  const drawerSummary = document.getElementById('project-drawer-summary');
-  const drawerMeta = document.getElementById('project-drawer-meta');
-  const drawerList = document.getElementById('project-drawer-list');
-  const drawerTags = document.getElementById('project-drawer-tags');
-  const drawerMedia = document.getElementById('project-drawer-media');
-  let lastProjectFocus = null;
+  const drawerBackdrop  = document.getElementById('project-drawer-backdrop');
+  const drawerKicker    = document.getElementById('project-drawer-kicker');
+  const drawerTitle     = document.getElementById('project-drawer-title');
+  const drawerSummaryWrap = document.getElementById('project-drawer-summary-wrap');
+  const drawerSummary   = document.getElementById('project-drawer-summary');
+  const drawerMeta      = document.getElementById('project-drawer-meta');
+  const drawerList      = document.getElementById('project-drawer-list');
+  const drawerTags      = document.getElementById('project-drawer-tags');
+  const drawerMedia     = document.getElementById('project-drawer-media');
+  const drawerLogo      = document.getElementById('project-drawer-logo');
+  let lastProjectFocus  = null;
 
   function clearNode(node) {
     while (node && node.firstChild) node.removeChild(node.firstChild);
@@ -3068,57 +2631,64 @@ renderSkills('craft', false);
     if (!record || !drawerTitle) return;
 
     drawerKicker.textContent = record.kicker;
-    drawerTitle.textContent = record.title;
+    drawerTitle.textContent  = record.title;
     drawerSummary.textContent = record.summary;
 
+    /* Meta grid */
     clearNode(drawerMeta);
     record.meta.forEach(([label, value]) => {
-      const item = document.createElement('div');
+      const item    = document.createElement('div');
       item.className = 'project-meta-item';
-
       const labelEl = document.createElement('span');
       labelEl.className = 'project-meta-label';
       labelEl.textContent = label;
-
       const valueEl = document.createElement('span');
       valueEl.className = 'project-meta-value';
       valueEl.textContent = value;
-
       item.append(labelEl, valueEl);
       drawerMeta.appendChild(item);
     });
 
+    /* Media: only render video player if a video path is provided */
     clearNode(drawerMedia);
-    clearNode(document.getElementById('project-drawer-logo'));
+    clearNode(drawerLogo);
 
-    if (record.media && drawerMedia) {
-      const mediaPlayer = document.createElement('div');
-      mediaPlayer.className = 'project-drawer-media-player';
-      const video = document.createElement('video');
-      video.controls = true;
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      video.style.width = '100%';
-      const source = document.createElement('source');
-      source.src = record.media.video;
-      source.type = 'video/mp4';
-      video.appendChild(source);
-      mediaPlayer.appendChild(video);
-      drawerMedia.appendChild(mediaPlayer);
+    if (record.media) {
+      if (record.media.video) {
+        const mediaPlayer = document.createElement('div');
+        mediaPlayer.className = 'project-drawer-media-player';
+        const video = document.createElement('video');
+        video.controls = true;
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.style.width = '100%';
+        const source = document.createElement('source');
+        source.src  = record.media.video;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+        mediaPlayer.appendChild(video);
+        drawerMedia.appendChild(mediaPlayer);
+      }
 
-      const logoContainer = document.getElementById('project-drawer-logo');
-      if (logoContainer) {
+      if (record.media.logo) {
         const logoWrap = document.createElement('div');
         logoWrap.className = 'project-drawer-media-logo';
         const logoImg = document.createElement('img');
         logoImg.src = record.media.logo;
-        logoImg.alt = `${record.title} logo`;
+        logoImg.alt = record.title + ' logo';
         logoWrap.appendChild(logoImg);
-        logoContainer.appendChild(logoWrap);
+        drawerLogo.appendChild(logoWrap);
       }
     }
 
+    /* If no logo, collapse the two-column summary layout to single column */
+    if (drawerSummaryWrap) {
+      const hasLogo = record.media && record.media.logo;
+      drawerSummaryWrap.classList.toggle('no-logo', !hasLogo);
+    }
+
+    /* Highlights list */
     clearNode(drawerList);
     record.highlights.forEach(text => {
       const item = document.createElement('li');
@@ -3126,6 +2696,7 @@ renderSkills('craft', false);
       drawerList.appendChild(item);
     });
 
+    /* Tags */
     clearNode(drawerTags);
     record.tags.forEach(tag => {
       const item = document.createElement('span');
@@ -3138,7 +2709,6 @@ renderSkills('craft', false);
   function openProjectRecord(key, trigger) {
     const record = PROJECT_DETAILS[key];
     if (!record || !drawer) return;
-
     lastProjectFocus = trigger || document.activeElement;
     renderProjectRecord(record);
     drawer.classList.add('is-open');
@@ -3150,7 +2720,6 @@ renderSkills('craft', false);
 
   function closeProjectRecord() {
     if (!drawer || !drawer.classList.contains('is-open')) return;
-
     drawer.classList.remove('is-open');
     drawer.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('drawer-open');
@@ -3165,7 +2734,6 @@ renderSkills('craft', false);
       if (!card) return;
       openProjectRecord(card.dataset.projectKey, card);
     });
-
     viewport.addEventListener('keydown', function(e) {
       if (e.key !== 'Enter' && e.key !== ' ') return;
       const card = e.target.closest('.proj-card[data-project-key]');
@@ -3175,9 +2743,8 @@ renderSkills('craft', false);
     });
   }
 
-  if (drawerClose) drawerClose.addEventListener('click', closeProjectRecord);
+  if (drawerClose)    drawerClose.addEventListener('click', closeProjectRecord);
   if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeProjectRecord);
-
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeProjectRecord();
   });
